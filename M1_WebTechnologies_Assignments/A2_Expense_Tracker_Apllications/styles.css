@@ -1,0 +1,31 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    color: #2c3e50;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.btn-delete-red {
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+}
+
+.btn-delete-red:hover {
+    background-color: #c0392b;
+}
+
+#chart-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
