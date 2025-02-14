@@ -1,0 +1,245 @@
+Started by user adlin
+Obtained Jenkinsfile from git https://github.com/adlin/-Flask-Application-with-Gunicorn-.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/adlin/-Flask-Application-with-Gunicorn-.git # timeout=10
+Fetching upstream changes from https://github.com/adlin/-Flask-Application-with-Gunicorn-.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.46.1.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/adlin/-Flask-Application-with-Gunicorn-.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 2e04c091a75c880b55a788827534cbeefeb18356 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 2e04c091a75c880b55a788827534cbeefeb18356 # timeout=10
+Commit message: "Added basic test file"
+ > git.exe rev-list --no-walk 8492fd5916a40701340ac74788d88ced8a1e84ab # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Clone Repository)
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/adlin/-Flask-Application-with-Gunicorn-.git
+ > git.exe init C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn # timeout=10
+Fetching upstream changes from https://github.com/adlin/-Flask-Application-with-Gunicorn-.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.46.1.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/adlin/-Flask-Application-with-Gunicorn-.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe config remote.origin.url https://github.com/adlin/-Flask-Application-with-Gunicorn-.git # timeout=10
+ > git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 2e04c091a75c880b55a788827534cbeefeb18356 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 2e04c091a75c880b55a788827534cbeefeb18356 # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe checkout -b main 2e04c091a75c880b55a788827534cbeefeb18356 # timeout=10
+Commit message: "Added basic test file"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Set Up Python Environment)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>python -m venv venv 
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>venv\Scripts\activate.bat   && python -m pip install --upgrade pip 
+Requirement already satisfied: pip in c:\users\adlin\.jenkins\workspace\flask application with gunicorn\venv\lib\site-packages (24.2)
+Collecting pip
+  Using cached pip-25.0-py3-none-any.whl.metadata (3.7 kB)
+Using cached pip-25.0-py3-none-any.whl (1.8 MB)
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 24.2
+    Uninstalling pip-24.2:
+      Successfully uninstalled pip-24.2
+Successfully installed pip-25.0
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>venv\Scripts\activate.bat   && (pip install -r requirements.txt --verbose ) 
+Using pip 25.0 from C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn\venv\Lib\site-packages\pip (python 3.13)
+Collecting Flask==3.0.0 (from -r requirements.txt (line 6))
+  Obtaining dependency information for Flask==3.0.0 from https://files.pythonhosted.org/packages/36/42/015c23096649b908c809c69388a805a571a3bea44362fe87e33fc3afa01f/flask-3.0.0-py3-none-any.whl.metadata
+  Using cached flask-3.0.0-py3-none-any.whl.metadata (3.6 kB)
+Collecting pytest==7.4.3 (from -r requirements.txt (line 7))
+  Obtaining dependency information for pytest==7.4.3 from https://files.pythonhosted.org/packages/f3/8c/f16efd81ca8e293b2cc78f111190a79ee539d0d5d36ccd49975cb3beac60/pytest-7.4.3-py3-none-any.whl.metadata
+  Using cached pytest-7.4.3-py3-none-any.whl.metadata (7.9 kB)
+Collecting gunicorn==21.2.0 (from -r requirements.txt (line 8))
+  Obtaining dependency information for gunicorn==21.2.0 from https://files.pythonhosted.org/packages/0e/2a/c3a878eccb100ccddf45c50b6b8db8cf3301a6adede6e31d48e8531cab13/gunicorn-21.2.0-py3-none-any.whl.metadata
+  Using cached gunicorn-21.2.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting eventlet==0.33.3 (from -r requirements.txt (line 9))
+  Obtaining dependency information for eventlet==0.33.3 from https://files.pythonhosted.org/packages/90/97/928b89de2e23cc67136eccccf1c122adf74ffdb65bbf7d2964b937cedd4f/eventlet-0.33.3-py2.py3-none-any.whl.metadata
+  Using cached eventlet-0.33.3-py2.py3-none-any.whl.metadata (4.3 kB)
+Collecting Werkzeug==3.0.1 (from -r requirements.txt (line 10))
+  Obtaining dependency information for Werkzeug==3.0.1 from https://files.pythonhosted.org/packages/c3/fc/254c3e9b5feb89ff5b9076a23218dafbc99c96ac5941e900b71206e6313b/werkzeug-3.0.1-py3-none-any.whl.metadata
+  Using cached werkzeug-3.0.1-py3-none-any.whl.metadata (4.1 kB)
+Collecting Jinja2>=3.1.2 (from Flask==3.0.0->-r requirements.txt (line 6))
+  Obtaining dependency information for Jinja2>=3.1.2 from https://files.pythonhosted.org/packages/bd/0f/2ba5fbcd631e3e88689309dbe978c5769e883e4b84ebfe7da30b43275c5a/jinja2-3.1.5-py3-none-any.whl.metadata
+  Using cached jinja2-3.1.5-py3-none-any.whl.metadata (2.6 kB)
+Collecting itsdangerous>=2.1.2 (from Flask==3.0.0->-r requirements.txt (line 6))
+  Obtaining dependency information for itsdangerous>=2.1.2 from https://files.pythonhosted.org/packages/04/96/92447566d16df59b2a776c0fb82dbc4d9e07cd95062562af01e408583fc4/itsdangerous-2.2.0-py3-none-any.whl.metadata
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.1.3 (from Flask==3.0.0->-r requirements.txt (line 6))
+  Obtaining dependency information for click>=8.1.3 from https://files.pythonhosted.org/packages/7e/d4/7ebdbd03970677812aac39c869717059dbb71a4cfc033ca6e5221787892c/click-8.1.8-py3-none-any.whl.metadata
+  Using cached click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting blinker>=1.6.2 (from Flask==3.0.0->-r requirements.txt (line 6))
+  Obtaining dependency information for blinker>=1.6.2 from https://files.pythonhosted.org/packages/10/cb/f2ad4230dc2eb1a74edf38f1a38b9b52277f75bef262d8908e60d957e13c/blinker-1.9.0-py3-none-any.whl.metadata
+  Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting iniconfig (from pytest==7.4.3->-r requirements.txt (line 7))
+  Obtaining dependency information for iniconfig from https://files.pythonhosted.org/packages/ef/a6/62565a6e1cf69e10f5727360368e451d4b7f58beeac6173dc9db836a5b46/iniconfig-2.0.0-py3-none-any.whl.metadata
+  Using cached iniconfig-2.0.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting packaging (from pytest==7.4.3->-r requirements.txt (line 7))
+  Obtaining dependency information for packaging from https://files.pythonhosted.org/packages/88/ef/eb23f262cca3c0c4eb7ab1933c3b1f03d021f2c48f54763065b6f0e321be/packaging-24.2-py3-none-any.whl.metadata
+  Using cached packaging-24.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting pluggy<2.0,>=0.12 (from pytest==7.4.3->-r requirements.txt (line 7))
+  Obtaining dependency information for pluggy<2.0,>=0.12 from https://files.pythonhosted.org/packages/88/5f/e351af9a41f866ac3f1fac4ca0613908d9a41741cfcf2228f4ad853b697d/pluggy-1.5.0-py3-none-any.whl.metadata
+  Using cached pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting colorama (from pytest==7.4.3->-r requirements.txt (line 7))
+  Obtaining dependency information for colorama from https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl.metadata
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting dnspython>=1.15.0 (from eventlet==0.33.3->-r requirements.txt (line 9))
+  Obtaining dependency information for dnspython>=1.15.0 from https://files.pythonhosted.org/packages/68/1b/e0a87d256e40e8c888847551b20a017a6b98139178505dc7ffb96f04e954/dnspython-2.7.0-py3-none-any.whl.metadata
+  Using cached dnspython-2.7.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting greenlet>=0.3 (from eventlet==0.33.3->-r requirements.txt (line 9))
+  Obtaining dependency information for greenlet>=0.3 from https://files.pythonhosted.org/packages/1f/1b/54336d876186920e185066d8c3024ad55f21d7cc3683c856127ddb7b13ce/greenlet-3.1.1-cp313-cp313-win_amd64.whl.metadata
+  Using cached greenlet-3.1.1-cp313-cp313-win_amd64.whl.metadata (3.9 kB)
+Collecting six>=1.10.0 (from eventlet==0.33.3->-r requirements.txt (line 9))
+  Obtaining dependency information for six>=1.10.0 from https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl.metadata
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting MarkupSafe>=2.1.1 (from Werkzeug==3.0.1->-r requirements.txt (line 10))
+  Obtaining dependency information for MarkupSafe>=2.1.1 from https://files.pythonhosted.org/packages/29/88/07df22d2dd4df40aba9f3e402e6dc1b8ee86297dddbad4872bd5e7b0094f/MarkupSafe-3.0.2-cp313-cp313-win_amd64.whl.metadata
+  Using cached MarkupSafe-3.0.2-cp313-cp313-win_amd64.whl.metadata (4.1 kB)
+Using cached flask-3.0.0-py3-none-any.whl (99 kB)
+Using cached pytest-7.4.3-py3-none-any.whl (325 kB)
+Using cached gunicorn-21.2.0-py3-none-any.whl (80 kB)
+Using cached eventlet-0.33.3-py2.py3-none-any.whl (226 kB)
+Using cached werkzeug-3.0.1-py3-none-any.whl (226 kB)
+Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Using cached click-8.1.8-py3-none-any.whl (98 kB)
+Using cached dnspython-2.7.0-py3-none-any.whl (313 kB)
+Using cached greenlet-3.1.1-cp313-cp313-win_amd64.whl (299 kB)
+Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached jinja2-3.1.5-py3-none-any.whl (134 kB)
+Using cached MarkupSafe-3.0.2-cp313-cp313-win_amd64.whl (15 kB)
+Using cached pluggy-1.5.0-py3-none-any.whl (20 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Using cached iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+Using cached packaging-24.2-py3-none-any.whl (65 kB)
+Installing collected packages: six, pluggy, packaging, MarkupSafe, itsdangerous, iniconfig, greenlet, dnspython, colorama, blinker, Werkzeug, pytest, Jinja2, gunicorn, eventlet, click, Flask
+Successfully installed Flask-3.0.0 Jinja2-3.1.5 MarkupSafe-3.0.2 Werkzeug-3.0.1 blinker-1.9.0 click-8.1.8 colorama-0.4.6 dnspython-2.7.0 eventlet-0.33.3 greenlet-3.1.1 gunicorn-21.2.0 iniconfig-2.0.0 itsdangerous-2.2.0 packaging-24.2 pluggy-1.5.0 pytest-7.4.3 six-1.17.0
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run Tests)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>venv\Scripts\activate.bat   && python -m pytest tests 
+============================= test session starts =============================
+platform win32 -- Python 3.13.0, pytest-7.4.3, pluggy-1.5.0
+rootdir: C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn
+collected 2 items
+
+tests\test_app.py ..                                                     [100%]
+
+============================== 2 passed in 0.31s ==============================
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy Application)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>echo @echo off  1>start_server.bat 
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>echo set FLASK_APP=app.py  1>>start_server.bat 
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>echo set FLASK_ENV=production  1>>start_server.bat 
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>echo call venv\Scripts\activate.bat  1>>start_server.bat 
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>echo python -m flask run --host=127.0.0.1 --port=8000  1>>start_server.bat 
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>start /B start_server.bat 
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>powershell -Command "Start-Sleep -Seconds 15" 
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Verify Deployment)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>powershell -Command "try {                             $response = Invoke-WebRequest -Uri http://127.0.0.1:8000 -UseBasicParsing;                             if ($response.StatusCode -eq 200) {                                 Write-Host 'Application is running successfully!';                                 exit 0;                             } else {                                 Write-Host 'Application returned status code: ' $response.StatusCode;                                 exit 1;                             }                         } catch {                             Write-Host 'Failed to connect to application: ' $_.Exception.Message;                             exit 1;                         }" 
+Application is running successfully!
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Health Check)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>powershell -Command "try {                             $response = Invoke-WebRequest -Uri http://127.0.0.1:8000/health -UseBasicParsing;                             $content = $response.Content | ConvertFrom-Json;                             if ($content.status -eq 'healthy') {                                 Write-Host 'Health check passed!';                                 exit 0;                             } else {                                 Write-Host 'Health check failed: ' $content.status;                                 exit 1;                             }                         } catch {                             Write-Host 'Health check failed: ' $_.Exception.Message;                             exit 1;                         }" 
+Health check passed!
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application with Gunicorn>powershell -Command "try {                         Get-Process -Name python -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue;                         Get-Process -Name flask -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue;                         exit 0;                     } catch {                         exit 0;                     }" 
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

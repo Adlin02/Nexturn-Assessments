@@ -1,0 +1,143 @@
+Started by user adlin
+Running as SYSTEM
+Building in workspace C:\Users\adlin\.jenkins\workspace\Flask Application Deployment
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/helloflask/flask-examples.git
+ > git.exe init C:\Users\adlin\.jenkins\workspace\Flask Application Deployment # timeout=10
+Fetching upstream changes from https://github.com/helloflask/flask-examples.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.46.1.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/helloflask/flask-examples.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe config remote.origin.url https://github.com/helloflask/flask-examples.git # timeout=10
+ > git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 8d35d2dcb24e41c56d859f0aca0f7cc496d3151e (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 8d35d2dcb24e41c56d859f0aca0f7cc496d3151e # timeout=10
+Commit message: "Merge pull request #12 from crayxt/patch-1"
+First time build. Skipping changelog.
+[Flask Application Deployment] $ cmd /c call C:\Users\adlin\AppData\Local\Temp\jenkins5215376183962261193.bat
+
+C:\Users\adlin\.jenkins\workspace\Flask Application Deployment>REM Navigate to workspace 
+
+C:\Users\adlin\.jenkins\workspace\Flask Application Deployment>cd flask-examples 
+The system cannot find the path specified.
+
+C:\Users\adlin\.jenkins\workspace\Flask Application Deployment>REM Create virtual environment 
+
+C:\Users\adlin\.jenkins\workspace\Flask Application Deployment>python -m venv venv 
+
+C:\Users\adlin\.jenkins\workspace\Flask Application Deployment>REM Activate virtual environment 
+
+C:\Users\adlin\.jenkins\workspace\Flask Application Deployment>call venv\Scripts\activate 
+Looking in indexes: https://pypi.python.org/simple/
+Collecting alembic==1.5.8 (from -r requirements.txt (line 2))
+  Downloading alembic-1.5.8-py2.py3-none-any.whl.metadata (7.0 kB)
+Collecting blinker==1.4 (from -r requirements.txt (line 3))
+  Downloading blinker-1.4.tar.gz (111 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting click==7.1.2 (from -r requirements.txt (line 4))
+  Downloading click-7.1.2-py2.py3-none-any.whl.metadata (2.9 kB)
+Collecting cssmin==0.2.0 (from -r requirements.txt (line 5))
+  Downloading cssmin-0.2.0.tar.gz (3.2 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting email-validator==1.1.2 (from -r requirements.txt (line 6))
+  Downloading email_validator-1.1.2-py2.py3-none-any.whl.metadata (17 kB)
+Collecting flask-assets==0.12 (from -r requirements.txt (line 7))
+  Downloading Flask-Assets-0.12.tar.gz (22 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting flask-caching==1.7.2 (from -r requirements.txt (line 8))
+  Downloading Flask_Caching-1.7.2-py2.py3-none-any.whl.metadata (1.8 kB)
+Collecting flask-ckeditor==0.4.3 (from -r requirements.txt (line 9))
+  Downloading Flask_CKEditor-0.4.3-py2.py3-none-any.whl.metadata (1.1 kB)
+Collecting flask-debugtoolbar==0.10.1 (from -r requirements.txt (line 10))
+  Downloading Flask_DebugToolbar-0.10.1-py2.py3-none-any.whl.metadata (5.4 kB)
+Collecting flask-dropzone==1.5.3 (from -r requirements.txt (line 11))
+  Downloading Flask_Dropzone-1.5.3-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting flask-mail==0.9.1 (from -r requirements.txt (line 12))
+  Downloading Flask-Mail-0.9.1.tar.gz (45 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting flask-migrate==2.5.2 (from -r requirements.txt (line 13))
+  Downloading Flask_Migrate-2.5.2-py2.py3-none-any.whl.metadata (946 bytes)
+Collecting flask-sqlalchemy==2.5.1 (from -r requirements.txt (line 14))
+  Downloading Flask_SQLAlchemy-2.5.1-py2.py3-none-any.whl.metadata (3.1 kB)
+Collecting flask-wtf==0.14.2 (from -r requirements.txt (line 15))
+  Downloading Flask_WTF-0.14.2-py2.py3-none-any.whl.metadata (1.8 kB)
+Collecting flask==1.0 (from -r requirements.txt (line 16))
+  Downloading Flask-1.0-py2.py3-none-any.whl.metadata (4.2 kB)
+Collecting greenlet==1.0.0 (from -r requirements.txt (line 17))
+  Downloading greenlet-1.0.0.tar.gz (84 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting itsdangerous==1.1.0 (from -r requirements.txt (line 18))
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl.metadata (3.1 kB)
+Collecting jinja2==2.11.3 (from -r requirements.txt (line 19))
+  Downloading Jinja2-2.11.3-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting jsmin==2.2.2 (from -r requirements.txt (line 20))
+  Downloading jsmin-2.2.2.tar.gz (12 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'error'
+  
+  
+  Getting requirements to build wheel did  run successfully.
+  exit code: 1
+  
+  [3 lines of output]
+  C:\Users\adlin\AppData\Local\Temp\pip-build-env-wmnjx0b2\overlay\Lib\site-packages\setuptools\_distutils\dist.py:270: UserWarning: Unknown distribution option: 'test_suite'
+    warnings.warn(msg)
+ 
+[notice] A new release of pip is available: 24.2 -> 25.0
+[notice] To update, run: python.exe -m pip install --upgrade pip
+
+Getting requirements to build wheel did run successfully.
+exit code: 1
+
+[Freestyle Project] $ cmd /c call C:\Users\adlin\AppData\Local\Temp\jenkins14095111231266127057.bat
+
+C:\Users\adlin\.jenkins\workspace\Freestyle Project># Step 1: Pull the repository 
+'#' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\adlin\.jenkins\workspace\Freestyle Project>git pull origin main 
+fatal: couldn't find remote ref main
+
+C:\Users\adlin\.jenkins\workspace\Freestyle Project># Step 2: Set up a virtual environment 
+'#' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\adlin\.jenkins\workspace\Freestyle Project>python -m venv venv 
+
+C:\Users\adlin\.jenkins\workspace\Freestyle Project>.\venv\Scripts\activate
+
+See above for output.
+
+Finished: SUCCESS

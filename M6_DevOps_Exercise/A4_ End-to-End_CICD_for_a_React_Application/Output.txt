@@ -1,0 +1,34 @@
+Started by user adlin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\adlin\.jenkins\workspace\React Application
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Git Checkout)
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/javahometech/reactjs-app/
+ > git.exe init C:\Users\adlin\.jenkins\workspace\React Application # timeout=10
+Fetching upstream changes from https://github.com/javahometech/reactjs-app/
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.46.1.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/javahometech/reactjs-app/ +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe config remote.origin.url https://github.com/javahometech/reactjs-app/ # timeout=10
+ > git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision e0397449165424c57a589777ac049655f913ba4a (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f e0397449165424c57a589777ac049655f913ba4a # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe checkout -b main e0397449165424c57a589777ac049655f913ba4a # timeout=10
+Commit message: "Create Jenkinsfile"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

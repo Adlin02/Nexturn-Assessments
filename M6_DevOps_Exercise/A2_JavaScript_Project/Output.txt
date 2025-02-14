@@ -1,0 +1,37 @@
+Started by user adlin 
+Running as SYSTEM
+Building in workspace C:\Users\adlin\.jenkins\workspace\gitintjob
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\adlin\.jenkins\workspace\gitintjob\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/adlin/gitty.git # timeout=10
+Fetching upstream changes from https://github.com/adlin/gitty.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.46.1.windows.1'
+ > git.exe fetch --tags --force --progress -- https://github.com/adlin/gitty.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/feature-branch^{commit}" # timeout=10
+Checking out Revision f6b6571a44e92356793669028aab3527352f26ef (refs/remotes/origin/feature-branch)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f f6b6571a44e92356793669028aab3527352f26ef # timeout=10
+Commit message: "Added feature branch"
+First time build. Skipping changelog.
+[gitintjob] $ cmd /c call C:\Users\adlin\AppData\Local\Temp\jenkins17750388941794712729.bat
+
+C:\Users\adlin\.jenkins\workspace\gitintjob>dir
+ Volume in drive C is Windows
+ Volume Serial Number is 2E31-173E
+
+ Directory of C:\Users\adlin\.jenkins\workspace\gitintjob
+
+03-01-2025  13:04    <DIR>          .
+03-01-2025  12:51    <DIR>          ..
+03-01-2025  13:04                25 feature.txt
+03-01-2025  12:57                44 file1.txt
+03-01-2025  12:51                25 file2.txt
+03-01-2025  12:57                16 file3.txt
+               4 File(s)            110 bytes
+               2 Dir(s)  26,195,898,368 bytes free
+
+C:\Users\adlin\.jenkins\workspace\gitintjob>exit 0 
+Finished: SUCCESS

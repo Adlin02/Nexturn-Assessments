@@ -1,0 +1,16 @@
+Started by user adlin
+Running as SYSTEM
+Building in workspace C:\Users\adlin\.jenkins\workspace\File_Transfer
+No emails were triggered.
+[File_Transfer] $ cmd /c call C:\Users\adlin\AppData\Local\Temp\jenkins8417144723921182662.bat
+
+C:\Users\adlin\.jenkins\workspace\File_Transfer>xcopy D:\Adlin-NexTurn-Program\M6_Devops_Assignment\A1_File_Transfer_Automation\Source_directory D:\Adlin-NexTurn-Program\M6_Devops_Assignment\A1_File_Transfer_Automation\Target_directory /E /I /H /Y 
+D:\Adlin-NexTurn-Program\M6_Devops_Assignment\A1_File_Transfer_Automation\Source_directory\hello.txt
+1 File(s) copied
+
+C:\Users\adlin\.jenkins\workspace\File_Transfer>echo File Transfer Completed Successfully! 
+File Transfer Completed Successfully!
+
+C:\Users\adlin\.jenkins\workspace\File_Transfer>exit 0 
+No emails were triggered.
+Finished: SUCCESS
