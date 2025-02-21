@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { margin: 5px; padding: 8px; }
+    .user { border: 1px solid #ccc; padding: 10px; margin: 5px 0; }
+    .user button { margin-left: 5px; }
+  </style>
+</head>
+<body>
+
+  <h1>User Management</h1>
+
+  <div>
+    <input type="text" id="name" placeholder="Name">
+    <input type="email" id="email" placeholder="Email">
+    <button onclick="addUser()">Add User</button>
+    <button onclick="updateUser()">Update User</button>
+  </div>
+
+  <h2>Users</h2>
+  <div id="userList"></div>
+
+  <script>
+    const API_URL = 'http://127.0.0.1:5000/users';
+    let selectedUserId = null;
+
+    // Fetch all users
+    async function fetchUsers() {
+      const response = await fetch(API_URL);
+      const users = await response.json();
+      const userList = document.getElementById('userList');
+      userList.innerHTML = '';
+      users.forEach(user => {
+        const div = document.createElement('div');
+        div.className = 'user';
+        div.innerHTML = `
+          <strong>${user.name}</strong> (${user.email})
+          <button onclick="selectUser(${user.id}, '${user.name}', '${user.email}')">Edit</button>
+          <button onclick="deleteUser(${user.id})">Delete</button>
+        `;
+        userList.appendChild(div);
+      });
+    }
+
+    // Add user
+    async function addUser() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      if (!name || !email) return alert('Please enter name and email.');
+
+      await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email })
+      });
+
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      fetchUsers();
+    }
+
+    // Select user for update
+    function selectUser(id, name, email) {
+      selectedUserId = id;
+      document.getElementById('name').value = name;
+      document.getElementById('email').value = email;
+    }
+
+    // Update user
+    async function updateUser() {
+      if (!selectedUserId) return alert('No user selected.');
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      await fetch(`${API_URL}/${selectedUserId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email })
+      });
+
+      selectedUserId = null;
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      fetchUsers();
+    }
+
+    // Delete user
+    async function deleteUser(id) {
+      await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+      fetchUsers();
+    }
+
+    // Initial load
+    fetchUsers();
+  </script>
+
+</body>
+</html>
